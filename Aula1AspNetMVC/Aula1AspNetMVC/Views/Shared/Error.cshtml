@@ -8,6 +8,10 @@
     <hgroup>
         <h1>Error.</h1>
         <h2>An error occurred while processing your request.</h2>
+        <h1>@TempData["erro"]</h1>
+        @{ 
+            TempData.Keep("erro"); //mantem o erro por mais uma rodada e assim não perde o dado do TempData
+        }
     </hgroup>
 </body>
 </html>

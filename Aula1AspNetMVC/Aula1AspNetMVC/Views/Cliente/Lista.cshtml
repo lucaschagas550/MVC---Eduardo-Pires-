@@ -1,0 +1,26 @@
+﻿@model List<Aula1AspNetMVC.Models.Cliente>
+<!--Models do tipo de uma lista -->
+@{
+    ViewBag.Title = "Lista";
+}
+
+<h2>Lista</h2>
+
+@foreach (var cliente in Model)
+{
+    <li>@Html.DisplayFor(model => cliente.Nome)</li>
+}
+
+ <!--pasta shared layout tem a definição do section para chamar os scripts e ser sincronizado -->
+@section scripts
+    {
+    <script>
+        $(document).ready(function () {
+            $("li").click(function () {
+                $(this).hide();
+            });
+        });
+    </script>
+    }
+
+

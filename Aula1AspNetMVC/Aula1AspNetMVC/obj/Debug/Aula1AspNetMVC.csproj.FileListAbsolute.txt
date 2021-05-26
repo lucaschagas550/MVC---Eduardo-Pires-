@@ -72,8 +72,8 @@ C:\Treinamento - Eduardo Pires\ASP.NET MVC 5 - Enterprise Applications - Básico
 C:\Treinamento - Eduardo Pires\ASP.NET MVC 5 - Enterprise Applications - Básico 1\Aula1AspNetMVC\Aula1AspNetMVC\bin\Newtonsoft.Json.xml
 C:\Treinamento - Eduardo Pires\ASP.NET MVC 5 - Enterprise Applications - Básico 1\Aula1AspNetMVC\Aula1AspNetMVC\bin\Antlr3.Runtime.pdb
 C:\Treinamento - Eduardo Pires\ASP.NET MVC 5 - Enterprise Applications - Básico 1\Aula1AspNetMVC\Aula1AspNetMVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Treinamento - Eduardo Pires\ASP.NET MVC 5 - Enterprise Applications - Básico 1\Aula1AspNetMVC\Aula1AspNetMVC\obj\Debug\Aula1AspNetMVC.csprojAssemblyReference.cache
 C:\Treinamento - Eduardo Pires\ASP.NET MVC 5 - Enterprise Applications - Básico 1\Aula1AspNetMVC\Aula1AspNetMVC\obj\Debug\Aula1AspNetMVC.csproj.CoreCompileInputs.cache
 C:\Treinamento - Eduardo Pires\ASP.NET MVC 5 - Enterprise Applications - Básico 1\Aula1AspNetMVC\Aula1AspNetMVC\obj\Debug\Aula1AspNetMVC.csproj.CopyComplete
 C:\Treinamento - Eduardo Pires\ASP.NET MVC 5 - Enterprise Applications - Básico 1\Aula1AspNetMVC\Aula1AspNetMVC\obj\Debug\Aula1AspNetMVC.dll
 C:\Treinamento - Eduardo Pires\ASP.NET MVC 5 - Enterprise Applications - Básico 1\Aula1AspNetMVC\Aula1AspNetMVC\obj\Debug\Aula1AspNetMVC.pdb
+C:\Treinamento - Eduardo Pires\ASP.NET MVC 5 - Enterprise Applications - Básico 1\Aula1AspNetMVC\Aula1AspNetMVC\obj\Debug\Aula1AspNetMVC.csprojAssemblyReference.cache

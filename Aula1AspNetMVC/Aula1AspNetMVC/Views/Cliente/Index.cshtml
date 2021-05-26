@@ -1,0 +1,26 @@
+﻿@model Aula1AspNetMVC.Models.Cliente
+@using Aula1AspNetMVC.Models
+@*Fazer minha view identificar minha model, apenas uma model por view*@
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    <p>@Model.Nome</p>
+    <p>@Model.Sobrenome</p>
+    <p>@Model.DataCadastro</p>
+</div>
+
+@*@{
+        var cliente = ViewBag.Cliente;
+        <p><b>@cliente.Nome</b></p>
+    }*@
+
+@{
+    var cliente = ViewData["Cliente"] as Cliente;
+    <p><b>@cliente.Nome</b></p>
+
+}
