@@ -8,7 +8,7 @@ namespace Aula1AspNetMVC.Controllers
 {
     public class HomeController : Controller
     {
-        //Como existe uma view com mesmo nome de Indext não preciso, passar nenhum valor no retorno apenas chamar a view
+        //Como existe uma view com mesmo nome de Index não preciso, passar nenhum valor no retorno apenas chamar a view
         public ActionResult Index()
         {
             return View();
