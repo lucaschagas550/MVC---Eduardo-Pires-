@@ -7,7 +7,6 @@ using System.Web;
 
 namespace Aula1AspNetMVC.Context
 {
-    [DbConfigurationType(typeof(MySql.Data.EntityFramework.MySqlEFConfiguration, MySql.Data.EntityFramework))]
     public class Aula1Context : DbContext // Define que a classe esta relacionada ao contexto
     {
         public Aula1Context() : base("Aula1Context") //nome da connectionString no webConfig

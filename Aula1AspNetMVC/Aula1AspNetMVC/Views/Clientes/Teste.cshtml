@@ -1,0 +1,115 @@
+﻿@model IEnumerable<Aula1AspNetMVC.Models.Cliente>
+
+<!--Mais que uma linha de codigo precisa colocar chaves e somente um -->
+@{
+    ViewBag.Title = "Teste";
+}
+
+<div>
+    <!--Raw entende a tag h2 sendo passada da controller com sua funcionalidade -->
+    @Html.Raw(ViewBag.Ola)
+</div>
+<h2>Teste</h2>
+
+@{
+    foreach (var cliente in Model)
+    {
+        <div>
+            <!--Hidden esconde a minha tag Id-->
+            @Html.Hidden("Id", cliente.Id)
+        </div>
+
+        <div>
+            @Html.Label("txtNome", "Nome", new { text = "Nome:", @class = "control-label col-md-2" })
+        </div>
+
+        <div>
+            @Html.TextBox("txtNome", cliente.Nome)
+            @Html.TextBoxFor(model => cliente.Nome)
+            @Html.EditorFor(model => cliente.Nome)
+        </div>
+
+        <div>
+            @Html.TextArea("txtNome2", new { rows = 5 })
+        </div>
+
+        <!--Envia o id para uma outra pagina ja chamando a pagina-->
+        <div>
+            @Html.ActionLink("Clique aqui", "Edit", new { cliente.Id })
+        </div>
+
+        <!--Retorna o html inteiro da view edit, baseada no id passado como parametro-->
+        <div>
+            @Html.Action("Edit", "Clientes", new { cliente.Id })
+        </div>
+
+        <!--Apresenta o nome da propriedade da model-->
+        <div>
+            @Html.LabelFor(model => cliente.Nome)
+        </div>
+        <div>
+            @Html.DisplayNameFor(model => model.Nome):
+            @Html.DisplayFor(model => cliente.Nome)
+        </div>
+
+        <!--Como estão do tipo "corFavorita" ele so permiter preencher 1 e os outros ficam como falso-->
+        <div>
+            @Html.RadioButton("corFavorita", "Azul", true) Azul
+        </div>
+        <div>
+            @Html.RadioButton("corFavorita", "Amarelo", false) Amarelo
+        </div>
+        <div>
+            @Html.RadioButton("corFavorita", "Preto", false) Preto
+        </div>
+
+
+        <!--Lista de valores-->
+        <div>
+            @Html.ListBox("ListaCores", new SelectList(new List<string>() { "Azul", "Amarelo", "Preto" }))
+        </div>
+
+        <!--Dropdown Lista-->
+        <div>
+            @Html.DropDownList("drpListCores", new SelectList(new List<string>() { "Azul", "Amarelo", "Preto" }))
+        </div>
+
+        <!--dropdownlista baseado no modelo-->
+        <div>
+            @Html.DropDownListFor(c => cliente.Nome, new SelectList(Model, "id", "Nome"))
+        </div>
+
+        <!--Dropdownlist com implementação mais simples sendo feita no controller teste-->
+        <div>
+            @Html.DropDownList("Id", string.Empty)
+        </div>
+
+        <!--Checkbox-->
+        <div>
+            @Html.CheckBox("Certificado", false) Desejo receber Certificado
+        </div>
+
+        <!--Checkbox o id teria que ser boolean para trazer informação correta-->
+        @*<div>
+                @Html.CheckBoxFor(c => cliente.Id) Desejo receber Certificado
+            </div>*@
+
+        <!--Chamando a partial view-->
+        <div>
+            @{
+                var teste = @Html.Partial("_Saudacao");
+            }
+        </div>
+
+        <div>
+            @{ 
+                Html.RenderPartial("_Saudacao");
+            }
+        </div>
+
+        <div>
+            <a href="@Url.Action("Index","Home")">Clique Aqui</a>
+        </div>
+    }
+}
+

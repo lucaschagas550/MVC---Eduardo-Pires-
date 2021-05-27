@@ -1,4 +1,5 @@
-﻿using Aula1AspNetMVC.Models;
+﻿using Aula1AspNetMVC.Context;
+using Aula1AspNetMVC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,13 +16,15 @@ namespace Aula1AspNetMVC.Controllers
         public ActionResult Teste()
         {
             //propriedades automaticas, geralmente as informações vem do banco de dados
-            var cliente = new Cliente()
-            {
-                Nome = "Asp",
-                Sobrenome = "Net",
-                DataCadastro = DateTime.Now,
-                Id = 1
-            };
+            //var cliente = new Cliente()
+            //{
+            //    Nome = "Asp",
+            //    Sobrenome = "Net",
+            //    DataCadastro = DateTime.Now,
+            //    Id = 1
+            //};
+
+            var cliente = new Aula1Context().Cliente.SingleOrDefault(c => c.Id == 1); // Recupera cliente do Banco
 
             //ViewBag.Cliente = cliente;
             ViewData["Cliente"] = cliente;
