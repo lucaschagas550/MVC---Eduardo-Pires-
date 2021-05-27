@@ -58,10 +58,17 @@ namespace Aula1AspNetMVC.Controllers
         // devolve os dados de criação do cliente com os dados realizados em create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome,Sobrenome,DataCadastro")] Cliente cliente)
+        public ActionResult Create(Cliente cliente) //[Bind(Include = "Id,Nome,Sobrenome,Email")]  permite eu escolher os dados que eu quero receber
         {
             if (ModelState.IsValid)
             {
+                if (!cliente.Email.Contains(".br"))
+                {
+                    ModelState.AddModelError(String.Empty,"E-mail não pode ser internacional"); // caso der erro volta os dados do cliente para a view
+                        return View(cliente);
+                }
+
+                cliente.DataCadastro = DateTime.Now;
                 db.Cliente.Add(cliente);
                 db.SaveChanges();
                 return RedirectToAction("Index");
