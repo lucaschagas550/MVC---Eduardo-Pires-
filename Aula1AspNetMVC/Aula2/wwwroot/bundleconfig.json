@@ -1,0 +1,26 @@
+[
+    {
+      "outputFileName": "wwwroot/css/site.css",
+      "inputFiles": [
+        "wwwroot/lib/bootstrap/dist/css/bootstrap.css",
+        "wwwroot/css/site.css"
+      ]
+    },
+    {
+        "outputFileName": "wwwroot/lib/bootstrap/dist/js/bootstrap.js",
+        "inputFiles": [
+          "wwwroot/lib/bootstrap/dist/js/bootstrap.js"
+        ]
+    },
+    {
+      "outputFileName": "wwwroot/js/site.min.js",
+      "inputFiles": [
+        "wwwroot/js/site.js"
+      ],
+      "minify": {
+        "enabled": true,
+        "renameLocals": true
+      },
+      "sourceMap": false
+    }
+  ]

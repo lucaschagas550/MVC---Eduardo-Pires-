@@ -32,7 +32,7 @@ namespace Aula1AspNetMVC.Controllers
             return View("Index", cliente); // passa o objeto por parametro para a view, posso indicar qual view estou chamando mesmo com actionresult diferente
         }
 
-        //cada actionresulta teoricamente tem uma view
+        //cada actionresult teoricamente tem uma view
         public ActionResult Lista()
         {
             var listaClientes = new List<Cliente>()

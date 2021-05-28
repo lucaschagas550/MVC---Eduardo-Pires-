@@ -14,7 +14,7 @@ namespace Aula1AspNetMVC.Controllers
     public class ClientesController : Controller
     {
         private Aula1Context db = new Aula1Context(); // instancia do banco de dados
-
+        //teste de tag helpers
         public ActionResult Teste()
         {
             ViewBag.Ola = "<h2>OLa</h2>";
@@ -24,7 +24,29 @@ namespace Aula1AspNetMVC.Controllers
             return View(db.Cliente.ToList());
         }
 
+        public ActionResult Teste1()
+        {
+            return Json(db.Cliente.ToList(), JsonRequestBehavior.AllowGet);
+            //new HttpUnauthorizedResult(); 
+            //HttpNotFound();
+            //JavaScript("<script>alert('olá');</script>"); //utilizar javascript html.raw na view para recuperar a função correta
+            //Content("Olá :)");
+            //Json(db.Cliente.ToList(), JsonRequestBehavior.AllowGet);
+            //PartialView("_Saudacao");
+        }
+
+        [OutputCache(Duration =30, VaryByParam = "id")]
+        // Faz um request a cada 30 segundos para atualizar as informações, VaryByParam siginifica que é um cache para cada parametro novo que for recebido
+        // posso ter varias parametros, se colocar "*" ele varia para todos parametros 
+        public ContentResult Teste2(int id)
+        {
+
+            return Content(DateTime.Now.ToString());
+        }
+
+
         // GET: Clientes
+        [HttpGet]
         public ActionResult Index()
         {
             return View(db.Cliente.ToList());
@@ -56,11 +78,11 @@ namespace Aula1AspNetMVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
 
         // devolve os dados de criação do cliente com os dados realizados em create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpPost] //actionselector somente trabalhara com post
+        [ValidateAntiForgeryToken] // Previne ataques de cross site request forgeries, seria forja um request finge o local da onde vem a informação
         public ActionResult Create(Cliente cliente) //[Bind(Include = "Id,Nome,Sobrenome,Email")]  permite eu escolher os dados que eu quero receber
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) // valida os campos e somente depois disso adiciona no banco de dados
             {
                 if (!cliente.Email.Contains(".br"))
                 {
@@ -97,6 +119,8 @@ namespace Aula1AspNetMVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        //Bind permite uma maior segurança, se possivel deve ser utilizado
+        //Ele evita que seja manipulado o html da pagina e injetem informações nele e seja feito um post
         public ActionResult Edit([Bind(Include = "Id,Nome,Sobrenome,DataCadastro")] Cliente cliente)
         {
             if (ModelState.IsValid)
