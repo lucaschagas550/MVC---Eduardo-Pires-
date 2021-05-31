@@ -121,7 +121,7 @@ namespace Aula1AspNetMVC.Controllers
         [ValidateAntiForgeryToken]
         //Bind permite uma maior segurança, se possivel deve ser utilizado
         //Ele evita que seja manipulado o html da pagina e injetem informações nele e seja feito um post
-        public ActionResult Edit([Bind(Include = "Id,Nome,Sobrenome,DataCadastro")] Cliente cliente)
+        public ActionResult Edit([Bind(Include = "Id,Nome,Sobrenome,DataCadastro,Email")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
@@ -149,7 +149,7 @@ namespace Aula1AspNetMVC.Controllers
 
         // POST: Clientes/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken] //CADA POST PRECISA DO ValidateAntiForgeryToken
         public ActionResult DeleteConfirmed(int id)
         {
             Cliente cliente = db.Cliente.Find(id);
